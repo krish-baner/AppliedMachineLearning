@@ -1,7 +1,7 @@
 # Applied_ML
 
 
-This is my submission to the Assignments in the Applied Machine Learning course.
+This is my submission to the Assignments in the Applied Machine Learning course (2025).
 
 
 ## Assignment 1
