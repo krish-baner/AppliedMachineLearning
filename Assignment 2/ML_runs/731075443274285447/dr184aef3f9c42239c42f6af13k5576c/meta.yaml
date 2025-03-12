@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/saisa/AppliedMachineLearning/assignment_2/mlruns/431075443274287447/ed184aef3f9c42239c42f6af13f6675c/artifacts
+end_time: 1741084668629
+entry_point_name: ''
+experiment_id: '431075443274287447'
+lifecycle_stage: active
+run_id: ed184aef3f9c42239c42f6af13f6675c
+run_name: Naive Bayes
+run_uuid: ed184aef3f9c42239c42f6af13f6675c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741084638663
+status: 3
+tags: []
+user_id: turing
