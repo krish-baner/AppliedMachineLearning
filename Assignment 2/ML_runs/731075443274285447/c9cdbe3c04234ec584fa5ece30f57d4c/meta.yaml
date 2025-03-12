@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/saisa/AppliedMachineLearning/assignment_2/mlruns/431075443274287447/a9cdbe3c04294ec584fa5ece30f47c4d/artifacts
+end_time: 1741084683668
+entry_point_name: ''
+experiment_id: '431075443274287447'
+lifecycle_stage: active
+run_id: a9cdbe3c04294ec584fa5ece30f47c4d
+run_name: SVM
+run_uuid: a9cdbe3c04294ec584fa5ece30f47c4d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741084668655
+status: 3
+tags: []
+user_id: turing
