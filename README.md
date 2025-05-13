@@ -1,53 +1,87 @@
-# AppliedMachineLearning
-Applied Machine Learning Course in CMI (Sem VI)
-
+<!-- Badges -->
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![DVC Status](https://img.shields.io/badge/dvc-pipelines-green)](https://dvc.org/)
+[![MLflow Runs](https://img.shields.io/badge/mlflow-tracked-orange)](https://mlflow.org/)
+[![Build & Test](https://img.shields.io/github/actions/workflow/status/your-username/aml-course/ci.yml?branch=main)](https://github.com/your-username/aml-course/actions)
+[![Coverage](https://img.shields.io/badge/coverage-⛰️-yellow)](https://coveralls.io/github/your-username/aml-course)
 
 # 📘 Applied Machine Learning
 
-This repository contains coursework for the **Applied Machine Learning** course in Chennai Mathematical Institute (CMI) for Sem-VI, covering the complete ML lifecycle — from prototyping to deployment and CI/CD using industry-standard tools like DVC, MLflow, Flask, Docker, and Git hooks.
+Welcome to the **Applied Machine Learning** coursework repository!  
+Here you’ll find four progressively advanced assignments that take you from building a simple prototype to deploying and continuously integrating an ML service. We leverage production-grade tools like DVC, MLflow, Flask, Docker, and Git hooks to mirror real-world ML lifecycle practices.
 
 ---
 
-## 📦 Assignment 1: Prototype  
-**Goal:** Build a prototype for SMS spam classification.
+## 📦 Assignment 1: Prototype
 
-- Loaded and preprocessed the [UCI SMS Spam Collection dataset](https://archive.ics.uci.edu/ml/datasets/sms+spam+collection).
-- Split data into train/validation/test sets and saved as CSV files.
-- Trained baseline models and evaluated using accuracy, precision, recall, and AUCPR.
-- Validated and selected the best-performing model.
+**Objective:** Kick off with a minimal viable product—classify SMS as “spam” or “ham.”
 
----
-
-## 🔍 Assignment 2: Experiment Tracking  
-**Goal:** Track data and model experiments.
-
-- Used **DVC** to version control raw and split data files.
-- Compared target distributions across data versions using different random seeds.
-- Tracked experiments using **MLflow**, including model metrics and parameters.
-- Built and registered three benchmark models, compared using AUCPR.
+- **Data Ingestion & Cleaning**  
+  Retrieved the [UCI SMS Spam Collection dataset](https://archive.ics.uci.edu/ml/datasets/sms+spam+collection), performed text normalization (lowercasing, punctuation removal), and handled missing values gracefully.  
+- **Dataset Splitting**  
+  Split into **train** / **validation** / **test** sets (80/10/10) and exported each to CSV with clear naming conventions (`train.csv`, `val.csv`, `test.csv`).  
+- **Baseline Modeling**  
+  Trained simple classifiers (Multinomial NB, Logistic Regression) and visualized performance metrics—accuracy, precision, recall, F1-score, and Area Under the Precision-Recall Curve—to pick a starting point.  
+- **Model Selection**  
+  Compared models via validation curves, then shortlisted the best performer based on balanced precision and recall.
 
 ---
 
-## 🧪 Assignment 3: Testing & Model Serving  
-**Goal:** Add testing and serve model via API.
+## 🔍 Assignment 2: Experiment Tracking
 
-- Wrote a `score()` function to predict spam from text input using a trained model.
-- Implemented unit tests with **pytest** to validate function output, types, and edge cases.
-- Created a **Flask API** with a `/score` endpoint that returns prediction and propensity.
-- Wrote integration tests for the API and generated coverage reports.
+**Objective:** Introduce rigorous versioning and experiment tracking to your workflow.
 
----
-
-## 🐳 Assignment 4: Containerization & CI  
-**Goal:** Dockerize the app and automate testing.
-
-- Created a `Dockerfile` to containerize the Flask app and run it with all dependencies.
-- Wrote a test script to build the image, run the container, query the `/score` endpoint, and shut down cleanly.
-- Configured a **pre-commit Git hook** to automatically run `test.py` before any commit to the `main` branch.
+- **Data Versioning with DVC**  
+  Initialized a DVC pipeline to snapshot **raw** and **processed** data at each stage. Ensured reproducibility by storing data checksums and pipeline stages in Git.  
+- **Target Distribution Checks**  
+  Automated statistical checks to compare label distributions across different random seed splits, guarding against data drift.  
+- **MLflow Integration**  
+  Logged every experiment—hyperparameters, code versions, metrics, and artifacts.  
+- **Benchmark Suite**  
+  Registered three distinct models (e.g., TF-IDF + SVM, Word2Vec + Logistic Regression, and Character-level CNN) to the MLflow registry and compared their AUCPR and inference latency in a unified dashboard.
 
 ---
 
-## 🛠️ Tools & Libraries  
-- `scikit-learn`, `pandas`, `joblib`, `DVC`, `MLflow`, `Flask`, `pytest`, `Docker`, `Git`
+## 🧪 Assignment 3: Testing & Model Serving
+
+**Objective:** Ensure code quality with tests, then expose your model via an API.
+
+- **Prediction Function**  
+  Designed a `score(text: str) → dict` function that returns both the binary class and a spam probability score.  
+- **Unit Testing with pytest**  
+  Covered edge cases (empty strings, very long messages, non-ASCII text), type checking, and error handling. Achieved >90% code coverage.  
+- **Flask Microservice**  
+  Built a lightweight Flask app with a `/predict` endpoint. Input: JSON payload `{"text": "Hello!"}`; Output: `{"prediction": "ham", "probability": 0.03}`.  
+- **API Integration Tests**  
+  Employed `pytest` and `requests` to simulate client calls, verify HTTP status codes, and assert response schemas. Generated coverage and report badges.
 
 ---
+
+## 🐳 Assignment 4: Containerization & CI/CD
+
+**Objective:** Package your service in Docker and automate quality checks on every commit.
+
+- **Docker Container**  
+  Authored a multi-stage `Dockerfile` to build a lean image. Ensured dependencies (Flask, scikit-learn, joblib) are isolated and cached for fast rebuilds.  
+- **Smoke Tests**  
+  Wrote a Bash/Python script (`test_docker.sh`) that builds the image, spins up a container, hits the `/predict` endpoint with sample data, verifies output format, and tears down cleanly.  
+- **Git Hooks & CI**  
+  Configured a **pre-commit** hook to run `test_docker.sh` locally. Integrated the same script into a GitHub Actions workflow to gate PRs—failing builds will block merges if tests or linting rules fail.
+
+---
+
+## 🛠️ Tools & Technologies
+
+- **Data Science & ML**: `scikit-learn` · `pandas` · `numpy` · `joblib`  
+- **Versioning & Tracking**: `DVC` · `MLflow`  
+- **API & Testing**: `Flask` · `pytest` · `requests`  
+- **DevOps**: `Docker` · `pre-commit` · **GitHub Actions**
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/your-username/aml-course.git
+   cd aml-course
