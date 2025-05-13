@@ -70,6 +70,39 @@ Here you’ll find four progressively advanced assignments that take you from bu
 
 ---
 
+
+## 🧠 Assignment 5: Transfer Learning – Vision & Language
+
+**Objective:** Leverage pre-trained deep learning models to solve computer vision and natural language understanding tasks with minimal data and training time.
+
+---
+
+### 🐤 Vision Task: Duck vs. Chicken Classifier
+
+- **Dataset Preparation**  
+  Collected ~100 images each for **ducks** and **chickens** from web sources. Organized them into `train`, `val`, and `test` folders following PyTorch's expected directory structure. Used data augmentation to improve generalization.
+  
+- **Model & Training**  
+  Used a **pre-trained CNN model** (ResNet18 / MobileNetV2) from `torchvision.models`. Replaced the final fully connected layer to adapt it to binary classification (duck vs. chicken). Fine-tuned the model using transfer learning techniques on Google Colab.
+
+- **Evaluation**  
+  Evaluated model predictions on the test set using a **classification report** with metrics like precision, recall, and F1-score.
+---
+
+### 📝 NLP Task: Sentiment Classification Using Transformers
+
+- **Dataset**  
+  Downloaded the [Sentiment Analysis Dataset](https://www.kaggle.com/datasets/abhi8923shriv/sentiment-analysis-dataset), which contains text samples labeled as **positive**, **neutral**, or **negative**.
+
+- **Model & Approach**  
+  Leveraged a **pre-trained Transformer model** (like `distilBERT`, `BERT-base-uncased`) from HuggingFace's `transformers` library. Fine-tuned the model on the labeled dataset using a Colab notebook with GPU acceleration.
+
+- **Output**  
+  After training, evaluated the performance with a **classification report** showing precision, recall, and F1-score across all three sentiment classes.
+
+---
+
+
 ## 🛠️ Tools & Technologies
 
 - **Data Science & ML**: `scikit-learn` · `pandas` · `numpy` · `joblib`  
@@ -79,9 +112,3 @@ Here you’ll find four progressively advanced assignments that take you from bu
 
 ---
 
-## 🚀 Getting Started
-
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/your-username/aml-course.git
-   cd aml-course
