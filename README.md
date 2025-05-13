@@ -112,3 +112,13 @@ Here you’ll find four progressively advanced assignments that take you from bu
 
 ---
 
+## 📚 Additional Resources
+
+- 📦 HuggingFace Transformers: [https://huggingface.co/transformers](https://huggingface.co/transformers)  
+- 🔗 PyTorch Docs: [https://pytorch.org/docs/stable/index.html](https://pytorch.org/docs/stable/index.html)  
+- 🎓 Google Colab: [https://colab.research.google.com](https://colab.research.google.com)  
+- 🧰 scikit-learn Metrics: [https://scikit-learn.org/stable/modules/model_evaluation.html](https://scikit-learn.org/stable/modules/model_evaluation.html)
+
+---
+
+
